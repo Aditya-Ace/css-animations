@@ -1,0 +1,101 @@
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 20rem;
+  flex-wrap: wrap;
+  background-color: #111;
+}
+
+.container {
+  position: relative;
+  margin: 0 auto;
+}
+
+.earth {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  height: 300px;
+  background: url(https://web.archive.org/web/20150807125159if_/http://www.noirextreme.com/digital/Earth-Color4096.jpg);
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-size: 610px;
+  box-shadow: inset 8px 36px 80px 36px rgb(0, 0, 0),
+    inset -6px 0 12px 4px rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  animation: planet 12s infinite linear;
+  &::after {
+    content: "Earth";
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: #eee;
+  }
+}
+
+.moon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  background: url(https://vignette.wikia.nocookie.net/thefutureofeuropes/images/b/b0/Moon_map.png/revision/latest?cb=20160901102422);
+  border-radius: 50%;
+  background-size: 120px;
+  transform: translate(-50%, -50%);
+  animation: revolve 4s infinite linear;
+  &::after {
+    content: "Moon";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #eee;
+  }
+}
+
+.mars {
+  width: 200px;
+  height: 200px;
+  background: url(https://static.ramblemaps.com/mars-map-n-1613.jpg);
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-size: 510px;
+  box-shadow: inset 8px 36px 80px 36px rgb(0, 0, 0, 0.5),
+    inset -6px 0 12px 4px rgba(255, 255, 255, 0.3);
+  position: relative;
+  animation: planet 8s infinite linear;
+  &::after {
+    content: "Mars";
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5rem;
+    color: #eee;
+  }
+}
+
+@keyframes planet {
+  from {
+    background-position: 0px 0px;
+  }
+  to {
+    background-position: 610px 0px;
+  }
+}
+
+@keyframes revolve {
+  from {
+    transform: rotate(0deg) translate(150px) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translate(150px) rotate(-360deg);
+  }
+}
